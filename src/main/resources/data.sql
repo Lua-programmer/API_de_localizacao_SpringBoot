@@ -4,4 +4,4 @@ create table tb_cidade (
     qtd_habitantes bigint
 );
 
-insert into tb_cidade(id_cidade, nome, qtd_habitantes) values (1, 'São Paulo', 16465463584), (2, 'Rio de Janeiro', 5458463584),(3, 'João Pessoa', 17865463584), (4, 'Bayeux', 5865463584);
+insert into tb_cidade(id_cidade, nome, qtd_habitantes) values (1, 'São Paulo', 16465463584), (2, 'Rio de Janeiro', 5458463584),(3, 'João Pessoa', 17865463584), (4, 'Bayeux', 463584), (5, 'Barueri', 5865463584);

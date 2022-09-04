@@ -21,7 +21,8 @@ public class LocalizacaoApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         //listarCidades();
         //listarCidadesPorNome();
-        listarCidadesEndingPorNome();
+        //listarCidadesEndingPorNome();
+        listarCidadePorParte();
     }
 
     void listarCidades() { //esse repository já retorna uma lista
@@ -33,6 +34,10 @@ public class LocalizacaoApplication implements CommandLineRunner {
     }
     void listarCidadesEndingPorNome() {
         cidadeRepository.findByNomeEndingWith("lo").forEach(System.out::println);
+    }
+
+    void listarCidadePorParte() {
+        cidadeRepository.findByNomeLike("b").forEach(System.out::println);
     }
 
 

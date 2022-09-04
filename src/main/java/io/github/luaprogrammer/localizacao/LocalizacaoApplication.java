@@ -23,10 +23,8 @@ public class LocalizacaoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //listarCidades();
-        //listarCidadesPorNome();
-        //listarCidadesEndingPorNome();
-        cidadeService.listarCidadePorParte();
+        //cidadeService.listarCidadePorParte();
+        cidadeService.listarCidadeSpec();
     }
 
     public static void main(String... args) {

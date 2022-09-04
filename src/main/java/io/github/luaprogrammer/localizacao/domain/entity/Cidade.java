@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "tb_cidade")
@@ -18,9 +19,9 @@ public class Cidade {
     @Column(name = "id_cidade")
    // @GeneratedValue(generator = "uuid")
     //@GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
-    private Long id;
+    private Integer id;
 
-    @Column(name = "nome_cidade", length = 50)
+    @Column(name = "nome", length = 50)
     private String nome;
 
     @Column(name = "qtd_habitantes")

@@ -2,9 +2,11 @@ package io.github.luaprogrammer.localizacao;
 
 import io.github.luaprogrammer.localizacao.domain.entity.Cidade;
 import io.github.luaprogrammer.localizacao.domain.repository.CidadeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.transaction.Transaction;
@@ -12,21 +14,29 @@ import javax.transaction.Transaction;
 @SpringBootApplication
 public class LocalizacaoApplication implements CommandLineRunner {
 
-    private final CidadeRepository cidadeRepository;
-
-    public LocalizacaoApplication(CidadeRepository cidadeRepository) {
-        this.cidadeRepository = cidadeRepository;
-    }
-
-    void listaCidades() { //esse repository já retorna uma lista
-        cidadeRepository.findAll().forEach(System.out::println);
-    }
+    @Autowired
+    private CidadeRepository cidadeRepository;
 
     @Override
     public void run(String... args) throws Exception {
-        listaCidades();
+        //listarCidades();
+        //listarCidadesPorNome();
+        listarCidadesEndingPorNome();
     }
-    public static void main(String[] args) {
+
+    void listarCidades() { //esse repository já retorna uma lista
+        cidadeRepository.findAll().forEach(System.out::println);
+    }
+
+    void listarCidadesPorNome() {
+        cidadeRepository.findByNome("Bayeux").forEach(System.out::println);
+    }
+    void listarCidadesEndingPorNome() {
+        cidadeRepository.findByNomeEndingWith("lo").forEach(System.out::println);
+    }
+
+
+    public static void main(String... args) {
         SpringApplication.run(LocalizacaoApplication.class, args);
     }
 }
